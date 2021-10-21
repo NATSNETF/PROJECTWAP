@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing:border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color:blanchedalmond;
+}
+
+.container {
+  padding: 64px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.column-66 {
+  float: left;
+  width: 66.66666%;
+  padding: 20px;
+}
+
+.column-33 {
+  float: left;
+  width: 33.33333%;
+  padding: 20px;
+}
+
+.large-font {
+  font-size: 48px;
+}
+
+.xlarge-font {
+  font-size: 64px
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #04AA6D;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .column-66,
+  .column-33 {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    margin: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<div style="text-align:center;color:indigo">
+  <h2><strong>Amazon’s brand is synonymous with accessibility, a term at odds with the core of luxury fashion.
+    Buying luxury is also more about the simple transaction, it’s about buying into a lifestyle, said King.</strong> </h2>
+  <p class="xlarge-font">Shop with us</p>
+</div>
+
+<!-- The App Section -->
+<div class="container">
+  <div class="row">
+    <div class="column-66">
+      <h1 class="xlarge-font"style="color:red;"><b>Amazon fashion</b></h1>
+      <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
+      <p><span style="font-size:36px">The Men's Shop</span> We want to make your shopping experience as convenient as possible, which is why we’ve organized our men’s fashion into easily searchable categories. You can easily filter by item, brand, size, color, and more to find the items you need–and want–now. And with dedicated shop for big and tall sizes, we ensure every shopper can put their fashionable foot forward.</p>
+      <button class="button">SHOP NOW</button>
+    </div>
+    <div class="column-33">
+        <img src="./pictures/boyclothing.jpg" width="335" height="471">
+    </div>
+  </div>
+</div>
+
+<!-- Clarity Section -->
+<div class="container" style="background-color:#f1f1f1">
+  <div class="row">
+    <div class="column-33">
+      <img src="./pictures/fashion-on-amazon.jpg" alt="App" width="935" height="991">
+    </div>
+    <div class="column-66">
+      <h1 class="xlarge-font"><b>Women's Clothing</b></h1>
+      <h1 class="large-font" style="color:red;"><b>Fashion Hoodies, Dresses & Sweatshirts</b></h1>
+      <p><span style="font-size:24px">NEW AND NOW.</span>At Amazon Fashion, we believe our customers can be smart and stylish. That’s exactly why we offer a vast, shoppable selection of women’s clothing. Whether you’re in the market for workout leggings, off the shoulder tops for your next vacation, or everyday essentials, there’s bound to be something for your clos-et. </p>
+      <button class="button" style="background-color:red">SHOP NOW</button>
+    </div>
+  </div>
+</div>
+
+<!-- The App Section -->
+<div class="container">
+  <div class="row">
+    <div class="column-66">
+      <h1 class="xlarge-font"><b>Eritrean Gold</b></h1>
+      <h1 class="large-font" style="color:MediumSeaGreen;"><b>Why buy it?</b></h1>
+      <p><span style="font-size:36px">Eritrean Traditional Wedding Jewelry Sets</span> Material: environmental friendly copper,Guarantee :24K gold plated vacuum plating jewelry sets,Best gift for your friend, family, lovers and so on
+        Occasion:Gift/Engagement/ workplace/OL /Party/Wedding/anniversary,Package: one piece one opp bag</p>
+      <button class="button">SHOP NOW</button>
+    </div>
+    <div class="column-33">
+        <img src="./pictures/eritrean goldamazon.jpg" width="335" height="471" >
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+    body{
+        background-color:teal;
+    }
+.container {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width:150px ;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  right: 0;
+  background-color:black;
+  overflow:scroll;
+  width: 100%;
+  height:20%;
+  transition: .5s ease;
+}
+
+.container:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.bookss{
+    display:flex;
+    -ms-flex-item-align:center;
+    margin-top: 10px;
+}
+#head{
+    border-radius:20px;
+    color:lightcoral;
+    font-size:30px;
+    
+}
+#mySearch {
+  width: 96%;
+  font-size: 18px;
+  padding: 11px;
+  border: 10px solid #ddd;
+}
+#myMenu {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+}
+#shop{
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+#myMenu li a {
+  padding: 5px;
+  text-decoration: none;
+  color:skyblue;
+  display: block;
+  font-size:larger;
+}
+.checked {
+  color: orange;
+  font-size: x-large;
+}
+.unchecked{
+    font-size: x-large;
+}
+</style>
+</head>
+<body>
+    <h2 id="head">Books at Amazon</h2>
+
+    <div class="left">
+        <h2 id="shop">Shop by Category</h2>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
+        <ul id="myMenu">
+          <li><a href="#">Bloodline</a></li>
+          <li><a href="#">Becoming</a></li>
+          <li><a href="#">Royal</a></li>
+          <li><a href="#">Haben</a></li>
+         
+        </ul>
+      </div>
+<div class="bookss" style="border:10px lightsalmon solid;">
+    
+<div class="container">
+  <img src="./pictures/yaabot_bloodline.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Bloodline is one of the best of Sheldon's blockbuster thrillers. Roffe and Sons is a family firm, 
+        an international empire filled with desperate, cash-hungry family members. At its head was one of the wealthiest men
+         in the world—a man who has just died in a mysterious accident and left his daughter, Elizabeth, in control of the company.
+          Now as this intelligent, tough, and gorgeous woman dares to save—not sell—Roffe and Sons, she will have to outwit those who secretly want her power . . .
+         and the unknown assassin who wants her life. Bloodline is a sweeping novel of high financial intrigue on three continents, love, murder, danger, and suspense.</div>
+  </div>
+  <div><h2>Bloodline</h2>
+    <p><strong>price</strong>$34.99</p>
+    <p><strong>Categories:</strong>Romance/Humor</p>
+    <p><strong>Update Frequency:</strong>8 in the last 30 days</p>
+   
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star unchecked"></span>
+<span class="fa fa-star unchecked"></span>
+
+    
+    
+</div>
+</div>
+
+<div class="container">
+  <img src="./pictures/daniela.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Danielle Steel has been hailed as one of the world's bestselling authors, with almost a billion copies of her novels sold.
+         Her many international bestsellers include Daddy's Girls , The Wedding Dress , The Numbers Game , Moral Compass , Spy , Child's Play ,
+          and other highly acclaimed novels. She is also the author of His Bright Light , the story of her son Nick Traina's life and death; A Gift of Hope , 
+          a memoir of her work with the homeless; Pure Joy ,
+         about the dogs she and her family have loved; and the children's books, Pretty Minnie in Paris and Pretty Minnie in Hollywood .</div>
+  </div>
+  <div><h2>Royal</h2>
+    <p><strong>price</strong>$15.99</p>
+    <p><strong>Categories:</strong>Romance/Humor</p>
+    <p><strong>Update Frequency:</strong>9 in the last 30 days</p>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star unchecked"></span>
+<span class="fa fa-star unchecked"></span>
+<span class="fa fa-star unchecked"></span>
+
+    
+</div>
+</div>
+
+
+<div class="container">
+  <img src="./pictures/becoming.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Bloodline is one of the best of Sheldon's blockbuster thrillers. Roffe and Sons is a family firm, 
+        an international empire filled with desperate, cash-hungry family members. At its head was one of the wealthiest men
+         in the world—a man who has just died in a mysterious accident and left his daughter, Elizabeth, in control of the company.
+          Now as this intelligent, tough, and gorgeous woman dares to save—not sell—Roffe and Sons, she will have to outwit those who secretly want her power . . .
+         and the unknown assassin who wants her life. Bloodline is a sweeping novel of high financial intrigue on three continents, love, murder, danger, and suspense.</div>
+  </div>
+  <div><h2>Becoming</h2>
+    <p>by Michelle Obama</p>
+    <p><strong>price</strong>$26.99</p>
+    <p><strong>Categories:</strong>Biographies and Memoris</p>
+    <p><strong>Update Frequency:</strong>8 in the last 30 days</p>
+ <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star unchecked"></span>
+    
+    
+</div>
+</div>
+
+<div class="container">
+  <img src="./pictures/Haben_cmyk.jpg" alt="Avatar" class="image">
+  <div class="overlay">
+    <div class="text">Haben grew up spending summers with her family in the enchanting Eritrean city of Asmara.<br>
+        Haben defines disability as an opportunity for innovation. She learned non-visual techniques for everything from dancing salsa to handling an electric saw. 
+        She developed a text-to-braille communication system that created an exciting new way to connect with people. Haben pioneered her way through obstacles,
+         graduated from Harvard Law, and now uses her talents to advocate for people with disabilities. </div>
+  </div>
+  <div><h2>Haben</h2>
+    <p><strong>price</strong>$19.99</p>
+    <p><strong>Categories:</strong>The Deafblind Woman Who Conquered Harverd Law</p>
+    <p><strong>Update Frequency:</strong>8 in the last 30 days</p>
+    <span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+    
+    
+</div>
+</div>
+</div>
+
+</body>
+</html>
+
+<script>
+    function myFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("mySearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myMenu");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+    </script>
+</body>
+</html>

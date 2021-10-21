@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.header{
+    background-color: thistle;
+   
+
+    
+}
+.checkboxx{
+    display:flex;
+    -ms-flex-item-align: center;
+    gap:20px;
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header"style="font-size:30px;;">
+ <div class="checkboxx">
+    <h1>Shop By Room</h1>
+    <p>Living Room</p>
+    <p>Home Office</p>
+    <p>Kitchen</p>
+    <p>Bedroom</p>
+    <p>Dining Room</p>
+    <p>Outdoor Living</p>
+ </div>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column-6">
+    <img src="https://images.pexels.com/photos/667838/pexels-photo-667838.jpeg?cs=srgb&dl=pexels-huseyn-kamaladdin-667838.jpg&fm=jpg" style="width:100%">
+    <br>
+    <img src="https://images.pexels.com/photos/4099350/pexels-photo-4099350.jpeg?cs=srgb&dl=pexels-taryn-elliott-4099350.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?cs=srgb&dl=pexels-vecislavas-popa-1743227.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?cs=srgb&dl=pexels-pixabay-462235.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/1005058/pexels-photo-1005058.jpeg?cs=srgb&dl=pexels-designecologist-1005058.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/1173651/pexels-photo-1173651.jpeg?cs=srgb&dl=pexels-alina-vilchenko-1173651.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/3718434/pexels-photo-3718434.jpeg?cs=srgb&dl=pexels-rosana-solis-3718434.jpg&fm=jpg" style="width:100%">
+  </div>
+  
+  <div class="column-6">
+    <img src="https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?cs=srgb&dl=pexels-pixabay-462235.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/1743227/pexels-photo-1743227.jpeg?cs=srgb&dl=pexels-vecislavas-popa-1743227.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/462235/pexels-photo-462235.jpeg?cs=srgb&dl=pexels-pixabay-462235.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/3797991/pexels-photo-3797991.jpeg?cs=srgb&dl=pexels-houzlook-com-3797991.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?cs=srgb&dl=pexels-mark-mccammon-2724748.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/4112235/pexels-photo-4112235.jpeg?cs=srgb&dl=pexels-taryn-elliott-4112235.jpg&fm=jpg" style="width:100%">
+    <img src="https://images.pexels.com/photos/1148450/pexels-photo-1148450.jpeg?cs=srgb&dl=pexels-sharon-mccutcheon-1148450.jpg&fm=jpg" style="width:100%">
+  </div>
+  
+</div>
+
+</body>
+</html>

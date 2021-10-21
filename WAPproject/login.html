@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        
+        .roundImage {
+            border-radius: 70%;
+            width: 150px;
+            object-fit: cover;
+            height: 100px;
+            justify-self: center;
+            
+
+        }
+
+        .main {
+            display: grid;
+            /* flex-direction:column; */
+            margin: auto;
+            gap: 100px;
+            width: 300px;
+            font-size: 20px;
+            margin-top: 20px;
+            width:20%;
+            border: 1px solid blue;
+            padding: 15px;
+        }
+
+        .innerDiv {
+            display: grid;
+            /* border:1px solid; */
+            grid-template-columns: 1fr 2fr;
+            gap: 15px;
+            justify-content: center;
+            
+        }
+
+        .myClass {
+            background-color: orange !important;
+        }
+    </style>
+
+    </style>
+    <script>
+        (function () {
+            'use strict'
+            window.addEventListener('load', function () {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            }, false);
+        })()
+    </script>
+
+
+</head>
+
+<!-- <label for="validationCustom05" class="form-label">Zip</label>
+<input type="text" class="form-control" id="validationCustom05" required>
+<div class="invalid-feedback">
+    Please provide a valid zip. -->
+
+<body>
+    <form class="row g-3 needs-validation" validate>
+        <div class="main" style="background-color: lightskyblue;">
+            <img src="./pictures/amazon-smile-logo-website.png" class="roundImage" style="width: 250px;height: 150px;" />
+            <div class="innerDiv">
+                <label>Email</label>
+                <input type="text" class="form-control" id="email" required />
+
+                <label>Password</label>
+                <input type="password" id="password" required/>
+            </div>
+            <button style="justify-self:center;" id="lsubmit">Login</button>
+            <div style="justify-self:center;"><a href="signUp.html">New User ? SignUp</a></div>
+        </div>
+        
+        <script>
+            let users = JSON.parse(localStorage.getItem("users"));
+
+            document.getElementById("lsubmit").onclick = function(e) {
+                e.preventDefault();
+                
+              let email = document.getElementById("email").value;
+              let pwd = document.getElementById("password").value;
+      
+              let userFound = users.find(
+                (u) => u.email === email && u.password === pwd
+              );
+              console.log(userFound);
+      
+              if (userFound && userFound.role === "manager")
+                window.location.href = "inventory.html";
+              else if (userFound && userFound.role === "customer") {
+                window.location.href = "main.html";
+              } else {
+                alert("Invalid login details!");
+              }
+            }
+
+            
+          </script>
+    </form>
+</body>
+
+</html>

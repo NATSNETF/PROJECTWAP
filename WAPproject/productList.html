@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/cs315/css/myStyle.css">
+  
+  <style>
+    .container{
+        margin: auto;
+        padding: 30px;
+        border: 2px solid blue;
+    }
+   
+</style>
+</head>
+<body>
+    <div class = "container">
+         <div class="Inv">
+             <h1 class="Inv" style="padding-left: 300px ;">Inventory</h1>
+         </div>
+   
+     <div>
+        <p>
+          Item Name: &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 
+          <input type="text" value="" id="name" />
+<!--            <input type="text" value="" id="itemName" /> -->
+        </p>
+        <p>
+<!--           Product Img URL: &nbsp; &nbsp; &nbsp;
+          <input type="text" value="" id="imgurl" />
+        </p> -->
+        <p>
+          Item Category: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 
+          <input type="text" value="" id="category" />
+        </p>
+        <p>
+          Quantity: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+          <input type="text" value="" id="quantity" />
+        </p>
+        <p>
+          Price: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+          <input type="text" value="" id="price" />
+        </p>
+        <p>
+          Rating: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;
+          <input type="text" value="" id="rating" />
+        </p>
+        <label id="mode" hidden></label>
+        <p>
+          <input type="submit" value="Add" class="addButton" onclick="add()" />
+        </p>
+        <p>
+          <input type="number" id="min" placeholder="Min" />
+          <input type="number" id="max" placeholder="Max" />
+          <input type="submit" value="Filter" onclick="price()" />
+          <input type="submit" value="Rating" onclick="rating()" />
+          <input type="submit" value="Clear Filter" onclick="clearFilter()" />
+           </p>
+<!--           <br>
+        <br><b></b> -->
+          
+       <input type="text" placeholder="enter search" id="search"/>
+        <input type="submit" value="search" id="searchKey" onclick="searchByCategory()"/>
+       
+  
+        <br />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Item Name</th>
+<!--             <th>Product Imgurl</th> -->
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="items"></tbody>
+      </table>
+    
+      <script>
+        let array = [];
+        let index = 0;
+        let idsOfInputs = ["name", "imgurl", "category", "quantity", "price","rating"];
+        let items = document.getElementById("items");
+  
+        function createEditButton(index) {
+          let editTd = document.createElement("td");
+          let button = document.createElement("button");
+          button.innerHTML = "Edit";
+          button.setAttribute("myId", index);
+  
+          button.onclick = function () {
+            let childNodes = this.parentNode.parentNode.childNodes;
+            this.parentNode.parentNode.setAttribute("editing", "true");
+  
+            for (let i = 0; i <= 3 ; i++) {
+              document.getElementById(idsOfInputs[i]).value =
+                childNodes[i].innerHTML;
+            }
+  
+            document.getElementById("mode").value = "Edit";
+            let myId = this.getAttribute("myId");
+  
+            array.forEach(function (item) {
+              if (item.id == myId) {
+                item.name = document.getElementById("name").value;
+                item.category = document.getElementById("category").value;
+                item.quantity = document.getElementById("quantity").value;
+                item.price = document.getElementById("price").value;
+                item.rating = document.getElementById("rating").value;
+  
+              }
+            });
+          };
+  
+          editTd.append(button);
+          return editTd;
+        }
+  
+        function createDeleteButton(index) {
+          let td = document.createElement("td");
+          let deleteButton = document.createElement("button");
+          deleteButton.setAttribute("myId", index);
+          deleteButton.innerHTML = "Delete";
+          deleteButton.onclick = function (e) {
+            let products = JSON.parse(localStorage.getItem("products"));
+            products.splice(e.target.getAttribute("myId"), 1);
+            console.log(products);
+            localStorage.setItem("products", JSON.stringify(products));
+            displayProducts();
+          };
+          td.append(deleteButton);
+          return td;
+        }
+  
+        function add() {
+          let products = JSON.parse(localStorage.getItem("products"));
+  
+          if (document.getElementById("mode").value == "Edit") {
+            let item = {
+              id: index,
+              name: document.getElementById("name").value,
+//               imgurl: document.getElementById("imgurl").value,
+              category: document.getElementById("category").value,
+              quantity: document.getElementById("quantity").value,
+              price: document.getElementById("price").value,
+              rating: document.getElementById("rating").value,
+            };
+  
+            products[index] = item;
+            localStorage.setItem("products", JSON.stringify(products));
+          } else {
+            index++;
+            let item = {
+              id: index,
+              name: document.getElementById("name").value,
+//               imgurl: document.getElementById("imgurl").value,
+              category: document.getElementById("category").value,
+              quantity: document.getElementById("quantity").value,
+              price: document.getElementById("price").value,
+              rating: document.getElementById("rating").value,
+            };
+  
+            if (products == null || (products != null && products.length == 0)) {
+              products = [];
+              products.push(item);
+            } else {
+              products.push(item);
+            }
+  
+            localStorage.setItem("products", JSON.stringify(products));
+          }
+  
+          displayProducts();
+        }
+  
+        function displayProducts(filterProducts) {
+          items.innerHTML = "";
+          let products = JSON.parse(localStorage.getItem("products"));
+          console.log(products);
+          index = products && products.length > 0 ? products.length - 1 : -1;
+  
+          if (filterProducts) products = filterProducts;
+  
+          let count = 0;
+          if (products)
+            for (let product of products) {
+              let tr = document.createElement("tr");
+              items.append(tr);
+  
+              let td = document.createElement("td");
+              td.innerHTML = product.name;
+              tr.append(td);
+  
+//               td = document.createElement("td");
+//               td.innerHTML = product.imgurl;
+//               tr.append(td);
+  
+              td = document.createElement("td");
+              td.innerHTML = product.category;
+              tr.append(td);
+  
+              td = document.createElement("td");
+              td.innerHTML = product.quantity;
+              tr.append(td);
+  
+              td = document.createElement("td");
+              td.innerHTML = product.price;
+              tr.append(td);
+  
+              td = document.createElement("td");
+              td.innerHTML = product.rating;
+              tr.append(td);
+  
+              tr.append(createEditButton(count));
+              tr.append(createDeleteButton(count));
+              count++;
+            }
+        }
+        displayProducts();
+  
+        function price() {
+          document.getElementById("mode").value = "";
+  
+          let products = JSON.parse(localStorage.getItem("products"));
+          let min = Number(document.getElementById("min").value);
+          let max = Number(document.getElementById("max").value);
+  
+          let filteredArray;
+  
+          if (min > 0 && max > 0)
+            filteredArray = products.filter(
+              (item) => Number(item.price) >= min && Number(item.price) <= max
+            );
+          else if (min > 0)
+            filteredArray = products.filter((item) => Number(item.price) >= min);
+          else if (max > 0)
+            filteredArray = products.filter((item) => Number(item.price) <= max);
+  
+          displayProducts(filteredArray);
+        }
+        
+  
+        function rating() {
+          document.getElementById("mode").value = "";
+  
+          let products = JSON.parse(localStorage.getItem("products"));
+          let min = Number(document.getElementById("min").value);
+          let max = Number(document.getElementById("max").value);
+  
+          let filteredArray;
+  
+          if (min > 0 && max > 0)
+            filteredArray = products.filter(
+              (item) => Number(item.rating) >= min && Number(item.rating) <= max
+            );
+          else if (min > 0)
+            filteredArray = products.filter((item) => Number(item.rating) >= min);
+          else if (max > 0)
+            filteredArray = products.filter((item) => Number(item.rating) <= max);
+  
+          displayProducts(filteredArray);
+        }
+        
+        
+         function searchByCategory(){
+         document.getElementById("mode").value = "";
+        let products = JSON.parse(localStorage.getItem("products"));
+        let searchInput = document.getElementById("search").value;
+       
+        let filteredArray;
+
+        if(filteredArray = products.filter(
+            (item) => (item.category) == searchInput 
+        )){
+         displayProducts(filteredArray);
+        }                  
+                   
+    }
+  
+        function getEditedRow() {
+          let children = document.getElementById("items").childNodes;
+          for (let i = 2; i < children.length; i++) {
+            let eachTr = children[i];
+            if (eachTr.getAttribute("editing") === "true") {
+              eachTr.setAttribute("editing", "");
+              return eachTr;
+            }
+          }
+        }
+  
+        function clearFilter() {
+          document.getElementById("min").value = "";
+          document.getElementById("max").value = "";
+          document.getElementById("search").value = "";
+          displayProducts();
+        }
+      </script>
+    </body>
+  </html>
